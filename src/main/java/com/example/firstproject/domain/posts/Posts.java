@@ -1,5 +1,6 @@
 package com.example.firstproject.domain.posts;
 
+import com.example.firstproject.domain.BasTimeEntity;
 import com.example.firstproject.dto.PostsSaveRequestDto;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BasTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

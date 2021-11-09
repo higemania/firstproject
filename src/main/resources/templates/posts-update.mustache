@@ -1,0 +1,32 @@
+{{>layout/header}}
+<main>
+    <section>
+        <h1>게시물을 수정 하세요</h1>
+    </section>
+    <section>
+        <form action="">
+            <table>
+                <tr>
+                    <td>게시물 번호</td>
+                    <td><input type="text" id="txt_id" value="{{posts.id}}" disabled></td>
+                </tr>
+                <tr>
+                    <td>제목</td>
+                    <td><input type="text" id="txt_title" value="{{posts.title}}"></td>
+                </tr>
+                <tr>
+                    <td>작성자</td>
+                    <td><input type="text" id="txt_author" value="{{posts.author}}" disabled></td>
+                </tr>
+                <tr>
+                    <td>내용</td>
+                    <td><textarea id="txt_content">{{posts.content}}</textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" ><input type="button" class="posts_cancel" value="취소"><input type="button" class="posts_update" value="수정"></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</main>
+{{>layout/footer}}
