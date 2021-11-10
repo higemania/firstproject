@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if(!txt_content     ){ txt_content       = document.querySelector('#txt_content');      }
     if(!txt_id          ){ txt_id            = document.querySelector('#txt_id');           }
 
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
     var reg = { //reg scope
 
              fnc_reg_vld : () => {
@@ -65,8 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     , content   : txt_content.value
                 };
 
-                axios.post('/api/v1/posts', param)
-                .then( response =>{
+                axios.post('/api/v1/posts',{
+                                title       : txt_title.value
+                                , author    : txt_author.value
+                                , content   : txt_content.value
+                }).then( response =>{
 //                    let strMsg = (response.status === 200) ? `정상 등록되었습니다` : `오류가 발생 하였습니다.[${response.status}]`;
 //                    alert(strMsg);
                     Swal.fire({
