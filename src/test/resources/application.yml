@@ -1,24 +1,20 @@
 spring:
   jpa:
-    #database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: update # ?? ??? ??? ??
-      #ddl-auto: create # ?? ??? ??? ??
-      properties:
-        hibernate:
-          format_sql: true  # ??? ??? ?? ?? ??
-          dialect: MySQL5InnoDBDialect
-          #hibernate:
-          #  dialect: org.hibernate.dialect.H2Dialect
-
+    generate-ddl: true
+    show_sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   h2:
     console:
       enabled: true
   datasource:
-    #url: jdbc:h2:mem:testdb
-    url: jdbc:h2:tcp://localhost/~/test
-    driverClassName: org.h2.Driver
-    username: sa
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://higedb.c8x9kwezs24k.ap-northeast-2.rds.amazonaws.com:3306/higedb?characterEncoding=UTF-8&serverTimezone=UTC
+    username: higemania
+    password: qwer1234
+  session:
+    store-type: jdbc
 
   security:
     oauth2:

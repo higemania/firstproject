@@ -14,10 +14,14 @@ spring:
     console:
       enabled: true
   datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://higedb.c8x9kwezs24k.ap-northeast-2.rds.amazonaws.com:3306/higedb?characterEncoding=UTF-8&serverTimezone=UTC
+    username: higemania
+    password: qwer1234
     #url: jdbc:h2:mem:testdb
-    url: jdbc:h2:tcp://localhost/~/test
-    driverClassName: org.h2.Driver
-    username: sa
+    #url: jdbc:h2:tcp://localhost/~/test
+    #driverClassName: org.h2.Driver
+    #username: sa
   jpa:
     hibernate:
       ddl-auto: update # 서버 시작에 테이블 생성
