@@ -1,34 +1,53 @@
 {{>layout/header}}
-    <h1>스프링 부트로 시작하는 웹 서비스</h1>
+    <header>
+        <p>SpringBoot Web Service</p>
+    </header>
     {{#userName}}
-        <a href="/posts/save" class="a_link">글 등록</a>
-        Logged in as <span id="user">{{userName}}</span>
-        <a href="/logout" role="button" class="a_link">Logout</a>
-        <table>
-            <thead>
-            <tr>
-                <th>게시글번호</th>
-                <th>제목</th>
-                <th>내용</th>
-                <th>작성자</th>
-                <th>최종수정일</th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#posts}}
-                <tr>
-                    <td>{{id}}</td>
-                    <td><a href="/posts/update/{{id}}" class="a_link">{{title}}</a></td>
-                    <td>{{content}}</td>
-                    <td>{{author}}</td>
-                    <td>{{modifiedDate}}</td>
+        <article>
+            <p><a href="/posts/save" class="link_reg" role="button">글 등록</a></p>
+        </article>
+        <article>
+            Logged in as <span id="user"> [{{userName}}] </span> <a href="/logout" role="button" class="link_reg">Logout</a>
+        </article>
+        <article>
+            <table class="table">
+                <thead class="table-header">
+                <tr class="table-header">
+                    <th class="header__item"><a id="name" class="filter__link" href="#">번호</a></th>
+                    <th class="header__item"><a id="name" class="filter__link" href="#">제목</a></th>
+                    <th class="header__item"><a id="name" class="filter__link" href="#">내용</a></th>
+                    <th class="header__item"><a id="name" class="filter__link" href="#">작성자</a></th>
+                    <!--
+                    <th class="header__item"><a id="name" class="filter__link" href="#">최종수정일</a></th>
+                    -->
                 </tr>
-            {{/posts}}
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="table-content">
+                {{#posts}}
+                    <tr class="table-row">
+                        <td class="table-data">{{id}}</td>
+                        <td class="table-data"><a href="/posts/update/{{id}}" class="a_link">{{title}}</a></td>
+                        <td class="table-data">{{content}}</td>
+                        <td class="table-data">{{author}}</td>
+                        <!--
+                        <td class="table-data">{{modifiedDate}}</td>
+                        -->
+                    </tr>
+                {{/posts}}
+                </tbody>
+            </table>
+        </article>
     {{/userName}}
 
     {{^userName}}
-        <a href="/oauth2/authorization/google" class="a_link">Google Login</a>
+        <a href="/oauth2/authorization/google" class="a_link">
+            <div id="gSignInWrapper">
+                <span class="label"></span>
+                <div id="customBtn" class="customGPlusSignIn">
+                    <span class="icon"></span>
+                    <span class="buttonText">Sign in with Google</span>
+                </div>
+            </div>
+        </a>
     {{/userName}}
 {{>layout/footer}}

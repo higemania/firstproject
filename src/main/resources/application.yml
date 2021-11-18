@@ -33,8 +33,9 @@ spring:
     basic:
       enabled: false # security 기본 인증 옵션 제거
   devtools:
-    livereload:
-      enabled: true
+    remote:
+      restart:
+        enabled: true
   mustache:
     cache: false
   mvc:
