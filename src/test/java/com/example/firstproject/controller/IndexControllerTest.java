@@ -34,7 +34,7 @@ public class IndexControllerTest {
         //String body = restTemplate.getForObject("/", String.class);
         ResponseEntity<String> responseEntity = restTemplate.getForEntity("/", String.class);
         //then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
 
